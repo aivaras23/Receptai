@@ -1,0 +1,88 @@
+body,
+body * {
+  vertical-align: top;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+main {
+  margin-top: 20px;
+  display: grid;
+  margin-left: 30%;
+  margin-right: 30%;
+  gap: 10px;
+}
+
+.recipe-form-con {
+  background: rgba(0, 0, 255, 0.242);
+  width: 100%;
+  border-radius: 5px;
+}
+.recipe-form-con h1 {
+  padding: 5px 15px;
+  text-align: center;
+}
+.recipe-form-con .recipe-add-form {
+  display: flex;
+  justify-content: center;
+  margin-left: 10%;
+  margin-right: 10%;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+}
+.recipe-form-con .recipe-add-form input, .recipe-form-con .recipe-add-form textarea {
+  font-size: 18px;
+  border-radius: 5px;
+  border: 1px solid black;
+  padding-left: 10px;
+}
+.recipe-form-con .recipe-add-form textarea {
+  resize: none;
+}
+.recipe-form-con .recipe-add-form input {
+  height: 30px;
+}
+.recipe-form-con .recipe-add-form button {
+  width: 50%;
+  margin: 0 auto;
+  border-radius: 5px;
+  background: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.recipe-list-con {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(0, 0, 255, 0.1936);
+  border-radius: 5px;
+  padding: 5px;
+}
+.recipe-list-con h2 {
+  font-size: 36px;
+}
+.recipe-list-con .recipe-info-con {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px 10px;
+}
+.recipe-list-con .recipe-info-con .recipe-name {
+  font-size: 30px;
+  font-weight: 700;
+}
+.recipe-list-con .recipe-info-con .recipe-duration {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  font-style: italic;
+}
+.recipe-list-con .recipe-info-con .recipe-desc {
+  font-size: 20px;
+  font-weight: 300;
+  width: 80%;
+}/*# sourceMappingURL=app.css.map */
