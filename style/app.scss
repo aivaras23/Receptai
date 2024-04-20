@@ -170,11 +170,20 @@
     flex-direction: column;
 }
 
-.absolute-img {
-    position:absolute;
-    z-index: -1;
-    inset:0;
-    img {
-        width:100%;
-    }
+// .absolute-img {
+//     position:absolute;
+//     z-index: -1;
+//     inset:0;
+//     img {
+//         width: 100vw;
+//         height: 100vh;
+//         background-position: center;
+//             background-size: cover;
+//     }
+// }
+
+body {
+    background-image: url("../images/webBackground.jpg");
+    background-size: cover;
+    background-position: center;
 }

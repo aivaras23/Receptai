@@ -151,11 +151,8 @@ main {
   flex-direction: column;
 }
 
-.absolute-img {
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-}
-.absolute-img img {
-  width: 100%;
+body {
+  background-image: url("../images/webBackground.jpg");
+  background-size: cover;
+  background-position: center;
 }/*# sourceMappingURL=app.css.map */
