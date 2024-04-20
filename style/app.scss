@@ -16,13 +16,15 @@
  }
 
  .recipe-form-con {
-     background: rgba(0, 0, 255, 0.242);
+     background: rgba(68, 68, 74, 0.75);
      width: 100%;
-    border-radius: 5px;
+    border-radius: 2rem 5rem 2rem 5rem;
 
      h1{
-        padding:5px 15px;
         text-align: center;
+        padding: 10px;
+        font-size: 48px;
+        color: #fff;
      }
 
      .recipe-add-form {
@@ -36,9 +38,12 @@
 
         input,textarea{
             font-size: 18px;
-            border-radius: 5px;
+            border-radius: 10px;
             border: 1px solid black;
             padding-left: 10px;
+            background: hsla(0, 0%, 100%, 0.9);
+            font-size: 20px;
+            padding:5px 10px;
         }
         textarea {
             resize: none;
@@ -48,14 +53,28 @@
             height: 30px;
         }
 
-        button {
-            width: 50%;
-            margin: 0 auto;
-            border-radius:5px;
-            background:none;
-            font-size: 24px;
-            cursor: pointer;
+        .recipe-add-form-buttons {
+            display:flex;
+            gap:20px;
+
+            button {
+                width: 50%;
+                margin: 0 auto;
+                border-radius: 5px;
+                font-size: 22px;
+                cursor: pointer;
+                background: #000;
+                color: #fff;
+                border: none;
+                padding: 10px;
+                transition: all 0.5s ease-in-out;
+            }
+
+            button:hover{
+                filter: brightness(80%);
+            }
         }
+
      }
  }
 
@@ -63,19 +82,26 @@
     display:flex;
     flex-direction: column;
     align-items: center;
-    background: rgba(0, 0, 255, 0.1936);
+    background: #78787de6;
     border-radius: 5px;
     padding:5px;
 
-    h2 {
-        font-size: 36px;
+    .recipe-list-con-header {
+        text-align: center;
+        border-bottom: 2px solid #999;
+        width: 100%;
+        padding: 10px;
+        font-size: 32px;
+        color:#fff;
     }
+
     
     .recipe-info-con {
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding:5px 10px;
+        padding:20px 0;
+        color:#fff;
 
         .recipe-name {
             font-size: 30px;
@@ -87,12 +113,13 @@
             margin-bottom: 15px;
             font-style: italic;
         }
+  
         .recipe-desc {
             font-size: 20px;
             font-weight: 300;
             width: 80%;
             word-break: break-all;
-            border-bottom: 1px solid #666;
+            font-weight: 500;
 
             p {
                 margin-bottom: 10px;
@@ -105,6 +132,7 @@
         justify-content: center;
         gap: 20px;
         padding: 10px 0;
+        border-bottom: 2px solid #999;
 
         button {
             padding: 10px;
@@ -114,21 +142,39 @@
             font-size: 16px;
             cursor: pointer;
             font-weight: 600;
+            transition: all 0.4s ease-in-out;
         }
 
-        button:nth-child(1) {
-            border: 2px solid #006400;
-            background-color: #00FF00;
+        button:hover{
+            filter: brightness(80%);
         }
 
-        button:nth-child(2) {
-            border: 2px solid #8B0000;
-            background-color: #FF0000;
-        }
+         button:nth-child(1) {
+             border: 2px solid #006400;
+             background-color: #00b300;
+             color: #fff;
+             font-size: 20px;
+         }
+    
+         button:nth-child(2) {
+             border: 2px solid #8B0000;
+             background-color: #ff3333;
+             color: #fff;
+             font-size: 20px;
+         }
     }
 }
 
 .recipe-edit-con {
     display:flex;
     flex-direction: column;
+}
+
+.absolute-img {
+    position:absolute;
+    z-index: -1;
+    inset:0;
+    img {
+        width:100%;
+    }
 }

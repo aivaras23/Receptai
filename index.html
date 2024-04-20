@@ -10,6 +10,9 @@
 </head>
 
 <body>
+    <div class="absolute-img">
+        <img src="./images/webBackground.jpg" alt="">
+    </div>
     <main>
         <div class="recipe-form-con">
             <h1>Pridėti naują receptą</h1>
@@ -19,16 +22,21 @@
 
                 <input id="gTrukme" type="text" placeholder="Gaminimo trukme" required>
 
-                <textarea placeholder="Aprasymas" name="aprasymas" id="aprasymas" cols="40" rows="5"></textarea>
+                <textarea placeholder="Aprasymas" name="aprasymas" id="aprasymas" cols="40" rows="8"></textarea>
 
-                <button id="submitBtn">Pridėti</button>
-                <button id="showAllRecipes">Rodyti visą sąrašą</button>
+                <div class="recipe-add-form-buttons">
+                    <button id="submitBtn">Pridėti</button>
+                    <button id="showAllRecipes">Rodyti visą sąrašą</button>
+                </div>
             </div>
         </div>
         <div class="recipe-list-con">
-            <h2>Receptų sąrašas</h2>
+            <div class="recipe-list-con-header">
+                <h2>Receptų sąrašas</h2>
+            </div>
             <div class="recipe-wrapper">
-                <div class="recipe-info-con" contenteditable="false" id="recipeEditor">
+                <!--
+                    <div class="recipe-info-con" contenteditable="false" id="recipeEditor">
 
                     <div class="recipe-name">
                         <span>Miltiniai blynai</span>
@@ -48,6 +56,7 @@
                         </p>
                     </div>
                 </div>
+                -->
                 <div class="recipe-buttons">
                     <button id="updateBtn" contenteditable="false">Atnaujinti</button>
                     <button id="deleteBtn" contenteditable="false">Ištrinti</button>
