@@ -85,6 +85,7 @@ main {
   font-size: 32px;
   color: #fff;
   margin-bottom: 10px;
+  border-radius: 10px;
 }
 .recipe-list-con .recipe-wrapper {
   display: grid;
@@ -100,6 +101,9 @@ main {
   text-align: center;
   background: rgba(120, 120, 125, 0.9019607843);
   border-radius: 10px;
+}
+.recipe-list-con .recipe-info-con:focus {
+  outline: 4px solid #ff0000;
 }
 .recipe-list-con .recipe-info-con .recipe-name {
   font-size: 30px;

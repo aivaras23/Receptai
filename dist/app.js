@@ -111,8 +111,10 @@ const loadData = () => {
             newRecipeButtons.classList.add('recipe-buttons');
             const newRecipeUpdateBtn = document.createElement('button');
             newRecipeUpdateBtn.innerHTML = 'Atnaujinti';
+            newRecipeUpdateBtn.setAttribute('contentEditable', 'false');
             const newRecipeDeleteBtn = document.createElement('button');
             newRecipeDeleteBtn.innerHTML = 'Ištrinti';
+            newRecipeDeleteBtn.setAttribute('contentEditable', 'false');
             newRecipeButtons.appendChild(newRecipeUpdateBtn);
             newRecipeButtons.appendChild(newRecipeDeleteBtn);
             newRecipeDiv.appendChild(newRecipeName);
