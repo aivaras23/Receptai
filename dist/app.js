@@ -119,6 +119,14 @@ const loadData = () => {
             newRecipeDeleteBtn.addEventListener('click', () => {
                 deleteData(key);
             });
+            newRecipeUpdateBtn.addEventListener('click', () => {
+                const updatedRecipe = {
+                    recipeName: newRecipeNameSpan.innerHTML,
+                    recipeDuration: newRecipeDurSpan.innerHTML,
+                    recipeDescription: newRecipePara.innerHTML
+                };
+                updateData(key, updatedRecipe);
+            });
         });
     });
 };
@@ -133,6 +141,21 @@ function deleteData(key) {
     })
         .then((data) => {
         loadData();
+        console.log('Receptas ištrintas');
+    });
+}
+function updateData(key, update) {
+    fetch(`https://recipedb-fc213-default-rtdb.europe-west1.firebasedatabase.app/recipes/${key}.json`, {
+        method: 'PUT',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(update)
+    })
+        .then((data) => {
+        loadData();
+        console.log('Receptas atnaujintas');
     });
 }
 // recipeEditor.onclick = () => {

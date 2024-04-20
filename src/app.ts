@@ -149,11 +149,22 @@ const loadData = () => {
             newRecipeDeleteBtn.addEventListener('click', () => {
                 deleteData(key); 
             });
+            newRecipeUpdateBtn.addEventListener('click', () => {
+                const updatedRecipe: Recipes = {
+                    recipeName: newRecipeNameSpan.innerHTML,
+                    recipeDuration: newRecipeDurSpan.innerHTML,
+                    recipeDescription: newRecipePara.innerHTML
+                };
+                updateData(key, updatedRecipe);
+            })
+
         })
     })
 }
 
 showAllRecipesBtn.onclick = loadData
+
+
 
 function deleteData(key: string) {
     fetch(`https://recipedb-fc213-default-rtdb.europe-west1.firebasedatabase.app/recipes/${key}.json`, {
@@ -165,10 +176,24 @@ function deleteData(key: string) {
     })
     .then((data) => {
         loadData();
+        console.log('Receptas ištrintas')
     })
 }
 
-
+function updateData(key:string, update:Recipes) {
+      fetch(`https://recipedb-fc213-default-rtdb.europe-west1.firebasedatabase.app/recipes/${key}.json`, {
+        method: 'PUT',
+        headers:{
+            'Accept':'application/json',
+            'Content-Type':'application/json'
+        },
+        body: JSON.stringify(update)
+    })
+    .then((data) => {
+        loadData();
+        console.log('Receptas atnaujintas');
+    })
+}
 
 
 // recipeEditor.onclick = () => {
