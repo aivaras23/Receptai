@@ -98,30 +98,32 @@
                 margin-bottom: 10px;
             }
         }
+    }
 
-        .recipe-buttons {
-            display:flex;
-            gap:20px;
-            padding:10px 0;
-            
-            button {
-                padding:10px;
-                min-width: 100px;
-                border-radius:5px;
-                background: none;
-                font-size: 16px;
-                cursor: pointer;
-                font-weight: 600;
-                color:#black;
-            }
-            button:nth-child(1){
-                border:2px solid #006400;
-                background-color: #00FF00;
-            }
-            button:nth-child(2) {
-                border:2px solid #8B0000;
-                background-color: #FF0000;
-            }
+    .recipe-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        padding: 10px 0;
+
+        button {
+            padding: 10px;
+            min-width: 100px;
+            border-radius: 5px;
+            background: none;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        button:nth-child(1) {
+            border: 2px solid #006400;
+            background-color: #00FF00;
+        }
+
+        button:nth-child(2) {
+            border: 2px solid #8B0000;
+            background-color: #FF0000;
         }
     }
 }
