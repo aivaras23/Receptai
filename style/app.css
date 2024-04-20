@@ -10,8 +10,8 @@ body * {
 main {
   margin-top: 20px;
   display: grid;
-  margin-left: 30%;
-  margin-right: 30%;
+  margin-left: 15%;
+  margin-right: 15%;
   gap: 10px;
 }
 
@@ -74,17 +74,22 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: rgba(120, 120, 125, 0.9019607843);
   border-radius: 5px;
   padding: 5px;
 }
 .recipe-list-con .recipe-list-con-header {
   text-align: center;
-  border-bottom: 2px solid #999;
+  background: rgba(120, 120, 125, 0.9019607843);
   width: 100%;
   padding: 10px;
   font-size: 32px;
   color: #fff;
+  margin-bottom: 10px;
+}
+.recipe-list-con .recipe-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
 }
 .recipe-list-con .recipe-info-con {
   display: flex;
@@ -92,6 +97,9 @@ main {
   align-items: center;
   padding: 20px 0;
   color: #fff;
+  text-align: center;
+  background: rgba(120, 120, 125, 0.9019607843);
+  border-radius: 10px;
 }
 .recipe-list-con .recipe-info-con .recipe-name {
   font-size: 30px;
@@ -118,7 +126,6 @@ main {
   justify-content: center;
   gap: 20px;
   padding: 10px 0;
-  border-bottom: 2px solid #999;
 }
 .recipe-list-con .recipe-buttons button {
   padding: 10px;
@@ -155,4 +162,5 @@ body {
   background-image: url("../images/webBackground.jpg");
   background-size: cover;
   background-position: center;
+  margin-bottom: 100px;
 }/*# sourceMappingURL=app.css.map */

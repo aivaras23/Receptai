@@ -82,10 +82,16 @@ submitBtn.onclick = () => {
         newRecipeDiv.appendChild(newRecipeName);
         newRecipeDiv.appendChild(newRecipeDur);
         newRecipeDiv.appendChild(newRecipeDesc);
+        newRecipeDiv.appendChild(newRecipeButtons);
 
         const receptoInfoCon = <HTMLElement> document.querySelector('.recipe-wrapper');
         receptoInfoCon.appendChild(newRecipeDiv);
-        receptoInfoCon.appendChild(newRecipeButtons);
+        // receptoInfoCon.appendChild(newRecipeButtons);
+
+
+        receptoName.value = ''
+        receptoDur.value = '';
+        receptoDesc.value = '';
 
 }
 
@@ -142,9 +148,9 @@ const loadData = () => {
             newRecipeDiv.appendChild(newRecipeName);
             newRecipeDiv.appendChild(newRecipeDur);
             newRecipeDiv.appendChild(newRecipeDesc);
+            newRecipeDiv.appendChild(newRecipeButtons);
 
             receptoInfoCon.appendChild(newRecipeDiv);
-            receptoInfoCon.appendChild(newRecipeButtons);
 
             newRecipeDeleteBtn.addEventListener('click', () => {
                 deleteData(key); 

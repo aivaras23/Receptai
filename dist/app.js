@@ -65,9 +65,13 @@ submitBtn.onclick = () => {
     newRecipeDiv.appendChild(newRecipeName);
     newRecipeDiv.appendChild(newRecipeDur);
     newRecipeDiv.appendChild(newRecipeDesc);
+    newRecipeDiv.appendChild(newRecipeButtons);
     const receptoInfoCon = document.querySelector('.recipe-wrapper');
     receptoInfoCon.appendChild(newRecipeDiv);
-    receptoInfoCon.appendChild(newRecipeButtons);
+    // receptoInfoCon.appendChild(newRecipeButtons);
+    receptoName.value = '';
+    receptoDur.value = '';
+    receptoDesc.value = '';
 };
 const loadData = () => {
     fetch('https://recipedb-fc213-default-rtdb.europe-west1.firebasedatabase.app/recipes.json', {
@@ -114,8 +118,8 @@ const loadData = () => {
             newRecipeDiv.appendChild(newRecipeName);
             newRecipeDiv.appendChild(newRecipeDur);
             newRecipeDiv.appendChild(newRecipeDesc);
+            newRecipeDiv.appendChild(newRecipeButtons);
             receptoInfoCon.appendChild(newRecipeDiv);
-            receptoInfoCon.appendChild(newRecipeButtons);
             newRecipeDeleteBtn.addEventListener('click', () => {
                 deleteData(key);
             });

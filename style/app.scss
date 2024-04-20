@@ -10,8 +10,8 @@
  main {
      margin-top: 20px;
      display: grid;
-     margin-left: 30%;
-     margin-right: 30%;
+     margin-left: 15%;
+     margin-right: 15%;
      gap:10px;
  }
 
@@ -82,17 +82,25 @@
     display:flex;
     flex-direction: column;
     align-items: center;
-    background: #78787de6;
+    
     border-radius: 5px;
     padding:5px;
+    
 
     .recipe-list-con-header {
         text-align: center;
-        border-bottom: 2px solid #999;
+        background:#78787de6;
         width: 100%;
         padding: 10px;
         font-size: 32px;
         color:#fff;
+        margin-bottom: 10px;
+    }
+
+    .recipe-wrapper {
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+        gap:10px;
     }
 
     
@@ -102,6 +110,9 @@
         align-items: center;
         padding:20px 0;
         color:#fff;
+        text-align: center;
+        background: #78787de6;
+        border-radius:10px;
 
         .recipe-name {
             font-size: 30px;
@@ -132,7 +143,6 @@
         justify-content: center;
         gap: 20px;
         padding: 10px 0;
-        border-bottom: 2px solid #999;
 
         button {
             padding: 10px;
@@ -186,4 +196,5 @@ body {
     background-image: url("../images/webBackground.jpg");
     background-size: cover;
     background-position: center;
+    margin-bottom: 100px;
 }
