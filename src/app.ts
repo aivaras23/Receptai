@@ -59,18 +59,19 @@ registerBtn.onclick = () => {
 
         const getLoginCon = <HTMLElement> document.getElementById('loginContainer');
         const getMainCon = <HTMLElement>  document.getElementById('mainContainer');
-
+        
         getLoginCon.style.display = 'none';
         getMainCon.style.display = 'grid';
+        alert('Registracija sekminga!');
     }
 }
 
 loginBtn.onclick = () => {
-        fetch('https://recipedb-fc213-default-rtdb.europe-west1.firebasedatabase.app/registrations.json', {
+    fetch('https://recipedb-fc213-default-rtdb.europe-west1.firebasedatabase.app/registrations.json', {
         method: 'GET',
-        headers:{
-            'Accept':'application/json',
-            'Content-Type':'application/json'
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
         }
     })
     .then((res) => {
@@ -78,18 +79,26 @@ loginBtn.onclick = () => {
     })
     .then((data) => {
         const users: Users[] = Object.values(data);
-        const userFound = users.find(user => user.email === loginEmail.value && user.password === loginPassword.value);
 
-        if(userFound) {
-            const getLoginCon = <HTMLElement> document.getElementById('loginContainer');
-            const getMainCon = <HTMLElement>  document.getElementById('mainContainer');
-            console.log('Sėkmingai prisijungta');
-            getLoginCon.style.display = 'none';
-            getMainCon.style.display = 'grid';
-        }
-        else {
-            console.log('Neteisingas el paštas arba slaptažodis');
-            
+        const userFound = users.find(user => user.email === loginEmail.value);
+
+        const errorSpan = <HTMLElement>document.getElementById('errorSpan');
+        errorSpan.style.display = 'none';
+
+        if (userFound) {
+            if (userFound.password === loginPassword.value) {
+                const getLoginCon = <HTMLElement>document.getElementById('loginContainer');
+                const getMainCon = <HTMLElement>document.getElementById('mainContainer');
+                console.log('Sėkmingai prisijungta');
+                getLoginCon.style.display = 'none';
+                getMainCon.style.display = 'grid';
+            } else {
+                errorSpan.style.display = 'inline-block';
+                errorSpan.innerHTML = 'Neteisingas slaptažodis';
+            }
+        } else {
+            errorSpan.style.display = 'inline-block';
+            errorSpan.innerHTML = 'Vartotojas nerastas';
         }
     })
 }

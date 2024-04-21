@@ -44,6 +44,7 @@ registerBtn.onclick = () => {
         const getMainCon = document.getElementById('mainContainer');
         getLoginCon.style.display = 'none';
         getMainCon.style.display = 'grid';
+        alert('Registracija sekminga!');
     }
 };
 loginBtn.onclick = () => {
@@ -59,16 +60,25 @@ loginBtn.onclick = () => {
     })
         .then((data) => {
         const users = Object.values(data);
-        const userFound = users.find(user => user.email === loginEmail.value && user.password === loginPassword.value);
+        const userFound = users.find(user => user.email === loginEmail.value);
+        const errorSpan = document.getElementById('errorSpan');
+        errorSpan.style.display = 'none';
         if (userFound) {
-            const getLoginCon = document.getElementById('loginContainer');
-            const getMainCon = document.getElementById('mainContainer');
-            console.log('Sėkmingai prisijungta');
-            getLoginCon.style.display = 'none';
-            getMainCon.style.display = 'grid';
+            if (userFound.password === loginPassword.value) {
+                const getLoginCon = document.getElementById('loginContainer');
+                const getMainCon = document.getElementById('mainContainer');
+                console.log('Sėkmingai prisijungta');
+                getLoginCon.style.display = 'none';
+                getMainCon.style.display = 'grid';
+            }
+            else {
+                errorSpan.style.display = 'inline-block';
+                errorSpan.innerHTML = 'Neteisingas slaptažodis';
+            }
         }
         else {
-            console.log('Neteisingas el paštas arba slaptažodis');
+            errorSpan.style.display = 'inline-block';
+            errorSpan.innerHTML = 'Vartotojas nerastas';
         }
     });
 };

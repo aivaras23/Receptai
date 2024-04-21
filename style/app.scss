@@ -231,9 +231,17 @@
         }
 
         .login-form {
+
             display:flex;
             flex-direction: column;
             gap:5px;
+
+            span {
+                text-align: center;
+                color:#B30000;
+                font-weight: 700;
+                font-size: 20px;
+            }
 
             input {
                 width:80%;

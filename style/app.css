@@ -195,6 +195,12 @@ main {
   flex-direction: column;
   gap: 5px;
 }
+.login-container .login-wrapper .login-form span {
+  text-align: center;
+  color: #B30000;
+  font-weight: 700;
+  font-size: 20px;
+}
 .login-container .login-wrapper .login-form input {
   width: 80%;
   margin: 0 auto;
