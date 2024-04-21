@@ -160,9 +160,11 @@ submitBtn.onclick = () => {
         const newRecipeUpdateBtn = document.createElement('button');
         newRecipeUpdateBtn.innerHTML = 'Atnaujinti';
         newRecipeUpdateBtn.id = 'updateBtn';
+        newRecipeUpdateBtn.setAttribute('contentEditable', 'false');
         const newRecipeDeleteBtn = document.createElement('button');
         newRecipeDeleteBtn.innerHTML = 'Ištrinti';
         newRecipeDeleteBtn.id = 'deleteBtn';
+        newRecipeDeleteBtn.setAttribute('contentEditable', 'false');
         newRecipeButtons.appendChild(newRecipeUpdateBtn);
         newRecipeButtons.appendChild(newRecipeDeleteBtn);
 
