@@ -283,3 +283,76 @@
         }
     }
 }
+
+@media screen and (max-width: 768px) {
+    main {
+        margin:0;
+    }
+
+    .recipe-form-con {
+        h1 {
+            font-size: 36px;
+            border-radius: 2rem;
+        }
+        .recipe-add-form {
+            margin-left: 3%;
+            margin-right: 3%;
+
+            input {
+                width: 60%;
+                margin: 0 auto;
+                font-size: 14px;
+            }
+            
+            textarea {
+                width: 80%;
+                margin: 0 auto;
+                font-size: 14px;
+            }
+
+            .recipe-add-form-buttons {
+                width: 80%;
+                margin: 0 auto;
+                gap: 4px;
+                button {
+                    padding:3px;
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+    .recipe-list-con {
+
+
+        .recipe-list-con-header {
+            font-size: 20px;
+        }
+        
+        .recipe-wrapper {
+            display:grid;
+            grid-template-columns: 1fr;
+
+            .recipe-info-con {
+                padding:10px 0;
+                .recipe-name {
+                    font-size: 25px;
+                    width: 95%;
+                }
+                .recipe-duration {
+                    font-size: 20px;
+                }
+
+                .recipe-description {
+                    font-size: 15px;
+                }
+                .recipe-buttons {
+                    button {
+                        padding: 5px;
+                        min-width: 80px;
+                        font-size: 20px;
+                    }
+                }
+            }
+        }
+    }
+}
