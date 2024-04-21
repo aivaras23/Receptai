@@ -1,8 +1,3 @@
-export const userInfo = {
-    email: '',
-    idToken: '',
-    loggedIn: false,
-};
 console.log('test');
 const receptoName = document.getElementById('pavadinimas');
 const receptoDur = document.getElementById('gTrukme');
@@ -213,7 +208,18 @@ const loadData = () => {
         });
     });
 };
-showAllRecipesBtn.onclick = loadData;
+showAllRecipesBtn.onclick = () => {
+    const recipesContainer = document.getElementById('recipesContainer');
+    if (recipesContainer.style.display === 'none') {
+        recipesContainer.style.display = 'flex';
+        showAllRecipesBtn.innerHTML = 'Paslėpti sąrašą';
+        loadData();
+    }
+    else {
+        recipesContainer.style.display = 'none';
+        showAllRecipesBtn.innerHTML = 'Rodyti visą sąrašą';
+    }
+};
 function deleteData(key) {
     fetch(`https://recipedb-fc213-default-rtdb.europe-west1.firebasedatabase.app/recipes/${key}.json`, {
         method: 'DELETE',
@@ -263,3 +269,4 @@ document.addEventListener('click', (event) => {
         recipeEditor.contentEditable = 'false';
     }
 });
+export {};

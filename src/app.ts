@@ -2,12 +2,6 @@ import { Recipes } from "./recipes.js";
 import { Users } from "./auth.js";
 
 
-export const userInfo =  {
-    email:'',
-    idToken :'',
-    loggedIn:false,
-};
-
 console.log('test');
 
 const receptoName = <HTMLInputElement> document.getElementById('pavadinimas');
@@ -263,7 +257,19 @@ const loadData = () => {
     })
 }
 
-showAllRecipesBtn.onclick = loadData
+showAllRecipesBtn.onclick = () => {
+    const recipesContainer = <HTMLElement> document.getElementById('recipesContainer');
+    if(recipesContainer.style.display === 'none'){
+        recipesContainer.style.display = 'flex'
+        showAllRecipesBtn.innerHTML = 'Paslėpti sąrašą'
+        loadData();
+    }
+    else {
+        recipesContainer.style.display = 'none'
+        showAllRecipesBtn.innerHTML = 'Rodyti visą sąrašą'
+    }
+}
+
 
 
 
