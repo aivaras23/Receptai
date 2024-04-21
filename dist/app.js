@@ -1,3 +1,8 @@
+export const userInfo = {
+    email: '',
+    idToken: '',
+    loggedIn: false,
+};
 console.log('test');
 const receptoName = document.getElementById('pavadinimas');
 const receptoDur = document.getElementById('gTrukme');
@@ -5,8 +10,70 @@ const receptoDesc = document.getElementById('aprasymas');
 const submitBtn = document.getElementById('submitBtn');
 const recipeEditor = document.getElementById('recipeEditor');
 const showAllRecipesBtn = document.getElementById('showAllRecipes');
-const updateBtn = document.getElementById('updateBtn');
-const deleteBtn = document.getElementById('deleteBtn');
+const loginEmail = document.getElementById('loginEmail');
+const loginPassword = document.getElementById('loginPassword');
+const loginBtn = document.getElementById('loginBtn');
+const registerBtn = document.getElementById('registerBtn');
+const userData = [];
+registerBtn.onclick = () => {
+    if (loginEmail.value === '' || loginPassword.value === '') {
+        alert('Klaida: Neužpildyti visi laukeliai');
+        return;
+    }
+    else {
+        const user = {
+            email: loginEmail.value,
+            password: loginPassword.value
+        };
+        fetch('https://recipedb-fc213-default-rtdb.europe-west1.firebasedatabase.app/registrations.json', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then((res) => {
+            return res.json();
+        })
+            .then((data) => {
+            console.log('naujas vartotojas pridėtas į DB');
+            console.log(data);
+        });
+        const getLoginCon = document.getElementById('loginContainer');
+        const getMainCon = document.getElementById('mainContainer');
+        getLoginCon.style.display = 'none';
+        getMainCon.style.display = 'grid';
+    }
+};
+loginBtn.onclick = () => {
+    fetch('https://recipedb-fc213-default-rtdb.europe-west1.firebasedatabase.app/registrations.json', {
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    })
+        .then((res) => {
+        return res.json();
+    })
+        .then((data) => {
+        const users = Object.values(data);
+        const userFound = users.find(user => user.email === loginEmail.value && user.password === loginPassword.value);
+        if (userFound) {
+            const getLoginCon = document.getElementById('loginContainer');
+            const getMainCon = document.getElementById('mainContainer');
+            console.log('Sėkmingai prisijungta');
+            getLoginCon.style.display = 'none';
+            getMainCon.style.display = 'grid';
+        }
+        else {
+            console.log('Neteisingas el paštas arba slaptažodis');
+        }
+    });
+};
+//const updateBtn = <HTMLButtonElement> document.getElementById('updateBtn');
+// const deleteBtn = <HTMLButtonElement> document.getElementById('deleteBtn');
 const recipeData = [];
 submitBtn.onclick = () => {
     if (receptoName.value === '' || receptoName.value === '' || receptoDesc.value === '') {
@@ -186,4 +253,3 @@ document.addEventListener('click', (event) => {
         recipeEditor.contentEditable = 'false';
     }
 });
-export {};

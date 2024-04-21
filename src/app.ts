@@ -1,4 +1,12 @@
 import { Recipes } from "./recipes.js";
+import { Users } from "./auth.js";
+
+
+export const userInfo =  {
+    email:'',
+    idToken :'',
+    loggedIn:false,
+};
 
 console.log('test');
 
@@ -12,8 +20,84 @@ const recipeEditor = <HTMLElement> document.getElementById('recipeEditor');
 const showAllRecipesBtn = <HTMLButtonElement> document.getElementById('showAllRecipes');
 
 
-const updateBtn = <HTMLButtonElement> document.getElementById('updateBtn');
-const deleteBtn = <HTMLButtonElement> document.getElementById('deleteBtn');
+const loginEmail = <HTMLInputElement> document.getElementById('loginEmail');
+const loginPassword = <HTMLInputElement> document.getElementById('loginPassword');
+
+
+const loginBtn = <HTMLButtonElement> document.getElementById('loginBtn');
+const registerBtn= <HTMLButtonElement> document.getElementById('registerBtn');
+
+
+const userData:Users[] = [];
+
+
+registerBtn.onclick = () => {
+       if(loginEmail.value === '' || loginPassword.value === '') {
+        alert('Klaida: Neužpildyti visi laukeliai');
+        return;
+    }
+    else {
+        const user:Users = {
+            email:loginEmail.value,
+            password:loginPassword.value
+        }
+        fetch('https://recipedb-fc213-default-rtdb.europe-west1.firebasedatabase.app/registrations.json', {
+        method:'POST',
+         headers:{
+            'Accept':'application/json',
+            'Content-Type':'application/json'
+        },
+        body:JSON.stringify(user)
+        })
+        .then((res) => {
+            return res.json();
+        })
+        .then((data)=>{
+            console.log('naujas vartotojas pridėtas į DB');
+            console.log(data);
+        })
+
+        const getLoginCon = <HTMLElement> document.getElementById('loginContainer');
+        const getMainCon = <HTMLElement>  document.getElementById('mainContainer');
+
+        getLoginCon.style.display = 'none';
+        getMainCon.style.display = 'grid';
+    }
+}
+
+loginBtn.onclick = () => {
+        fetch('https://recipedb-fc213-default-rtdb.europe-west1.firebasedatabase.app/registrations.json', {
+        method: 'GET',
+        headers:{
+            'Accept':'application/json',
+            'Content-Type':'application/json'
+        }
+    })
+    .then((res) => {
+        return res.json();
+    })
+    .then((data) => {
+        const users: Users[] = Object.values(data);
+        const userFound = users.find(user => user.email === loginEmail.value && user.password === loginPassword.value);
+
+        if(userFound) {
+            const getLoginCon = <HTMLElement> document.getElementById('loginContainer');
+            const getMainCon = <HTMLElement>  document.getElementById('mainContainer');
+            console.log('Sėkmingai prisijungta');
+            getLoginCon.style.display = 'none';
+            getMainCon.style.display = 'grid';
+        }
+        else {
+            console.log('Neteisingas el paštas arba slaptažodis');
+            
+        }
+    })
+}
+
+
+//const updateBtn = <HTMLButtonElement> document.getElementById('updateBtn');
+// const deleteBtn = <HTMLButtonElement> document.getElementById('deleteBtn');
+
 
 
 const recipeData:Recipes[] = [];

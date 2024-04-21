@@ -18,7 +18,22 @@
         <img src="./images/webBackground.jpg" alt="">
     </div>
   -->
-    <main>
+
+    <div class="login-container" id="loginContainer">
+        <div class="login-wrapper">
+            <h2>Prisijunkite arba registruokites</h2>
+            <div class="login-form">
+                <input id="loginEmail" type="email" placeholder="El. paštas" required>
+                <input id="loginPassword" type="password" placeholder="slaptažodus" required>
+                <div class="login-buttons">
+                    <button id="loginBtn">Prisijungti</button>
+                    <button id="registerBtn">Registruotis</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main style="display: none;" id="mainContainer">
         <div class="recipe-form-con">
             <h1>Pridėti naują receptą</h1>
             <div class="recipe-add-form">

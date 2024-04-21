@@ -7,6 +7,14 @@ body * {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
+body {
+  background-image: url("../images/webBackground.jpg");
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 100px;
+  height: 100vh;
+}
+
 main {
   margin-top: 20px;
   display: grid;
@@ -162,9 +170,65 @@ main {
   flex-direction: column;
 }
 
-body {
-  background-image: url("../images/webBackground.jpg");
-  background-size: cover;
-  background-position: center;
-  margin-bottom: 100px;
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.login-container .login-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.7098039216);
+  padding: 3rem 4rem;
+  gap: 20px;
+  border-radius: 5px;
+}
+.login-container .login-wrapper h2 {
+  font-size: 30px;
+  font-weight: 700;
+  color: #000;
+}
+.login-container .login-wrapper .login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.login-container .login-wrapper .login-form input {
+  width: 80%;
+  margin: 0 auto;
+  padding: 8px 16px;
+  border-radius: 5px;
+  border: 1px solid #666;
+  text-align: center;
+  font-size: 18px;
+}
+.login-container .login-wrapper .login-form .login-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 5px;
+}
+.login-container .login-wrapper .login-form .login-buttons button {
+  padding: 5px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+}
+.login-container .login-wrapper .login-form .login-buttons button:nth-child(1) {
+  background: #007bff;
+}
+.login-container .login-wrapper .login-form .login-buttons button:nth-child(2) {
+  background: #28a745;
+}
+.login-container .login-wrapper .login-form .login-buttons button:nth-child(1):hover {
+  background: #0056b3;
+}
+.login-container .login-wrapper .login-form .login-buttons button:nth-child(2):hover {
+  background: #218838;
 }/*# sourceMappingURL=app.css.map */
